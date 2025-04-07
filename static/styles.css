@@ -1,0 +1,42 @@
+body {
+    background-color: #9396f5; /* Set the background color */
+    color: rgb(4, 4, 4); /* Optional: Set text color for better contrast */
+    font-family: Arial, sans-serif; /* Ensure consistent font styling */
+}
+
+#welcomeText {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+}
+
+#clickButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    display: block; /* Make the button a block-level element */
+    margin: 20px auto; /* Center the button horizontally */
+}
+
+#submitFormButton {
+    font-size: 10px;    
+    
+}
+
+#response {
+    margin-top: 20px;
+    font-size: 18px;
+    color: green;
+    text-align: center;
+
+}
+
+#responseQuestions{
+    font-size: 16px;
+    color: rgb(0, 0, 0);
+}
+#tripForm { 
+    margin-top: 20px;
+    text-align: left;
+}
+
