@@ -1,5 +1,10 @@
 import mysql.connector
 from mysql.connector import Error
+from dotenv import load_dotenv
+import os
+
+# Load environment variables from .env file
+load_dotenv()
 
 def check_destination_exists(destination):
     """
@@ -7,12 +12,12 @@ def check_destination_exists(destination):
     Returns True if it exists, otherwise False.
     """
     try:
-        # Connect to the MySQL database
+        # Connect to the MySQL database using environment variables
         connection = mysql.connector.connect(
-            host="127.0.0.1",  # Hostname
-            user="root",       # Username
-            password="112145", # Password
-            database="estimate"  # Database name
+            host=os.getenv("DB_HOST"),
+            user=os.getenv("DB_USER"),
+            password=os.getenv("DB_PASSWORD"),
+            database=os.getenv("DB_NAME")
         )
 
         if connection.is_connected():

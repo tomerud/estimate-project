@@ -57,7 +57,16 @@ Run the database creation script:
 python DB/create_tables.py
 ```
 
-### **5. Run the Application**
+### **5. Configure the Database Connection**
+Create a `.env` file in the project root directory and add the following configuration:
+```markdown
+DB_HOST=127.0.0.1
+DB_USER=root
+DB_PASSWORD=your_password_here
+DB_NAME=estimate
+```
+
+### **6. Run the Application**
 Run the application:
 ```bash
 python app.py
