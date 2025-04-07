@@ -38,12 +38,12 @@ python -m venv .venv
 Activate the virtual environment:
 ```bash
 # On Windows:
-[activate](http://_vscodecontentref_/0)
+.venv\Scripts\activate
 ```
 
 Install the required packages:
 ```bash
-pip install -r [requirements.txt](http://_vscodecontentref_/1)
+pip install -r requirements.txt
 ```
 
 ### **4. Create the Database**
@@ -60,5 +60,5 @@ python DB/create_tables.py
 ### **5. Run the Application**
 Run the application:
 ```bash
-python [app.py](http://_vscodecontentref_/2)
+python app.py
 ```
