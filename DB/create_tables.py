@@ -22,12 +22,22 @@ def create_tables():
             # Create a cursor object
             cursor = connection.cursor()
 
+            # SQL to create the `languages` table
+            create_languages_table = """
+            CREATE TABLE IF NOT EXISTS languages (
+                language_id INT AUTO_INCREMENT PRIMARY KEY,
+                language_name VARCHAR(255) NOT NULL
+            );
+            """
+
             # SQL to create the `countries` table
             create_countries_table = """
             CREATE TABLE IF NOT EXISTS countries (
                 country_id INT AUTO_INCREMENT PRIMARY KEY,
                 country_name VARCHAR(255) NOT NULL,
-                hdi DECIMAL(5, 3) NOT NULL
+                hdi DECIMAL(5, 3) NOT NULL,
+                language_id INT NOT NULL,
+                FOREIGN KEY (language_id) REFERENCES languages(language_id)
             );
             """
 
@@ -44,6 +54,9 @@ def create_tables():
             """
 
             # Execute the SQL commands
+            cursor.execute(create_languages_table)
+            print("Table `languages` created successfully (if not exists).")
+
             cursor.execute(create_countries_table)
             print("Table `countries` created successfully (if not exists).")
 
