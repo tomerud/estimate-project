@@ -6,7 +6,7 @@ import os
 # Load environment variables from .env file
 load_dotenv()
 
-def check_destination_exists(destination):
+def check_city_exists(destination):
     """
     Checks if the destination exists in the `cities` table.
     Returns True if it exists, otherwise False.

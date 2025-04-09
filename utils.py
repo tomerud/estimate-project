@@ -1,11 +1,14 @@
 import random
-from DB.helpers import check_destination_exists
+from DB.helpers import check_city_exists
 
-def estimate_cost(destination, duration, travel_type):
+def estimate_cost(origin, destination, duration, travel_type):
 
     # Check if the destination exists
-    if not check_destination_exists(destination):
+    if not check_city_exists(destination):
         return -1
+    if not check_city_exists(origin):
+        return -2
+    
 
     # Convert duration to an integer
     try:

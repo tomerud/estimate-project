@@ -17,9 +17,11 @@ def button_click():
 def form_submit():
     data = request.get_json()
     print("Data received:", data)
-    estimated_cost = estimate_cost(data["destination"], data["duration"], data["travelerType"])
+    estimated_cost = estimate_cost(data["origin"], data["destination"], data["duration"], data["travelerType"])
     return jsonify({
         'destination': data["destination"],
+        'origin': data["origin"],
+        'month': data["month"],
         'duration': data["duration"],
         'travelerType': data["travelerType"],
         'estimatedCost': estimated_cost

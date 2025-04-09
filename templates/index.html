@@ -15,19 +15,38 @@
 
     <!-- Questions Form -->
     <form id="tripForm">
+        <label for="origin">2. Where are you traveling from?</label><br>
+        <input type="text" id="origin" name="origin"><br><br>
+        
         <label for="destination">1. What is your travel destination?</label><br>
         <input type="text" id="destination" name="destination"><br><br>
-    
-        <label for="duration">2. How many days will you stay?</label><br>
+
+        <label for="duration">3. How many days will you stay?</label><br>
         <input type="number" id="duration" name="duration"><br><br>
-    
-        <label for="travelerType">3. Are you a backpacker, average, or expensive traveler?</label><br>
+
+        <label for="month">4. Which month are you traveling?</label><br>
+        <select id="month" name="month">
+            <option value="January">January</option>
+            <option value="February">February</option>
+            <option value="March">March</option>
+            <option value="April">April</option>
+            <option value="May">May</option>
+            <option value="June">June</option>
+            <option value="July">July</option>
+            <option value="August">August</option>
+            <option value="September">September</option>
+            <option value="October">October</option>
+            <option value="November">November</option>
+            <option value="December">December</option>
+        </select><br><br>
+
+        <label for="travelerType">5. Are you a backpacker, average, or expensive traveler?</label><br>
         <select id="travelerType" name="travelerType">
             <option value="backpacker">Backpacker</option>
             <option value="average">Average</option>
             <option value="expensive">Expensive</option>
         </select><br><br>
-    
+
         <button type="button" id="submitFormButton">Submit</button>
     </form>
 
