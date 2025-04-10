@@ -80,10 +80,8 @@ def get_budget_and_flight_price(origin, destination, month, travel_type):
             flight_price = flight_price_result[0]
 
             # Return the daily budget and flight price
-            return {
-                "daily_budget": daily_budget,
-                "flight_price": flight_price
-            }
+            return daily_budget, flight_price
+        
 
     except Error as e:
         print(f"Error: {e}")
@@ -94,14 +92,3 @@ def get_budget_and_flight_price(origin, destination, month, travel_type):
             connection.close()
             print("MySQL connection is closed")
 
-# Example usage
-if __name__ == "__main__":
-    result = get_budget_and_flight_price(
-        origin="Tel Aviv",
-        destination="berlin",
-        month="January",
-        travel_type="backpacker"
-    )
-    if result:
-        print(f"Daily Budget: {result['daily_budget']}")
-        print(f"Flight Price: {result['flight_price']}")

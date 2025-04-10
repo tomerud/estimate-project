@@ -1,7 +1,8 @@
 import random
 from DB.helpers import check_city_exists
+from DB.get_budget_and_flight_price import get_budget_and_flight_price
 
-def estimate_cost(origin, destination, duration, travel_type):
+def estimate_cost(origin, destination,month, duration, travel_type):
 
     # Check if the destination exists
     if not check_city_exists(destination):
@@ -9,20 +10,15 @@ def estimate_cost(origin, destination, duration, travel_type):
     if not check_city_exists(origin):
         return -2
     
-
-    # Convert duration to an integer
     try:
         duration = int(duration)
     except ValueError:
-        return -3  # Return -1 if duration is not a valid integer
+        return 
+    
+    daily_budget, fligth_price = get_budget_and_flight_price(origin, destination, month, travel_type)  
+    print(daily_budget, fligth_price)
 
-    # Calculate the base cost
-    base_cost = duration * 200
+    total_cost = daily_budget * duration + fligth_price
+    return daily_budget, fligth_price, total_cost
 
-    # Adjust the cost based on the travel type
-    if travel_type.lower() == "backpacker":
-        return base_cost * 0.7
-    elif travel_type.lower() == "expensive":
-        return base_cost * 2
-    else:
-        return base_cost
+ 

@@ -7,23 +7,19 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/button-click', methods=['POST'])
-def button_click():
-    data = request.get_json()
-    print("Data received:", data)
-    return jsonify({'message': 'Button was clicked in the backend!', 'test': 'test'}), 200
-
 @app.route('/form-submit', methods=['POST'])
 def form_submit():
     data = request.get_json()
     print("Data received:", data)
-    estimated_cost = estimate_cost(data["origin"], data["destination"], data["duration"], data["travelerType"])
+    daily_budget, fligth_price, estimated_cost = estimate_cost(data["origin"], data["destination"], data["month"], data["duration"], data["travelerType"])
     return jsonify({
         'destination': data["destination"],
         'origin': data["origin"],
         'month': data["month"],
         'duration': data["duration"],
         'travelerType': data["travelerType"],
+        'dailyBudget': daily_budget,
+        'flightPrice': fligth_price,
         'estimatedCost': estimated_cost
     }), 200
 

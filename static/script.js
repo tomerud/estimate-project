@@ -33,8 +33,10 @@ document.getElementById('submitFormButton').addEventListener('click', function (
         } else if (data.estimatedCost === -3) {
             message = 'Number of days is not valid';
         } else {
-            message = `Your trip from ${data.origin} to ${data.destination} in ${data.month} will be ${data.duration} days long on a ${data.travelerType} budget and will cost $${Math.round(data.estimatedCost)}.`;
+            message = `Your trip from ${data.origin} to ${data.destination} in ${data.month} will be ${data.duration} days long on a ${data.travelerType} budget and will cost $${Math.round(data.estimatedCost)}. \n description: \n budget: ${data.dailyBudget} per day. \n ${data.flightPrice} for flight.`;
         }
+            
+        // Add additional information if available
 
         // Display the constructed message
         document.getElementById('responseQuestions').innerText = message;
