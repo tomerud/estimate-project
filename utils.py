@@ -14,7 +14,7 @@ def estimate_cost(origin, destination, duration, travel_type):
     try:
         duration = int(duration)
     except ValueError:
-        return -1  # Return -1 if duration is not a valid integer
+        return -3  # Return -1 if duration is not a valid integer
 
     # Calculate the base cost
     base_cost = duration * 200

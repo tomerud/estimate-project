@@ -29,7 +29,9 @@ document.getElementById('submitFormButton').addEventListener('click', function (
         if (data.estimatedCost === -1) {
             message = `Sorry, the destination '${data.destination}' isn't available at this time.`;
         } else if (data.estimatedCost === -2) {
-            message = `Sorry, the origin '${data.origin}' isn't available at this time.`;  
+            message = `Sorry, the origin '${data.origin}' isn't available at this time.`;
+        } else if (data.estimatedCost === -3) {
+            message = 'Number of days is not valid';
         } else {
             message = `Your trip from ${data.origin} to ${data.destination} in ${data.month} will be ${data.duration} days long on a ${data.travelerType} budget and will cost $${Math.round(data.estimatedCost)}.`;
         }
