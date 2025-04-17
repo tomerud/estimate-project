@@ -23,5 +23,29 @@ def form_submit():
         'estimatedCost': estimated_cost
     }), 200
 
+@app.route('/alternatives')
+def alternatives():
+    # pull every field from the query string
+    origin        = request.args.get('origin', '')
+    destination   = request.args.get('destination', '')
+    duration      = request.args.get('duration', '')
+    month         = request.args.get('month', '')
+    travelerType  = request.args.get('travelerType', '')
+    dailyBudget   = request.args.get('dailyBudget', '')
+    flightPrice   = request.args.get('flightPrice', '')
+    estimatedCost = request.args.get('estimatedCost', '')
+
+    return render_template(
+        'alternatives.html',
+        origin=origin,
+        destination=destination,
+        duration=duration,
+        month=month,
+        travelerType=travelerType,
+        dailyBudget=dailyBudget,
+        flightPrice=flightPrice,
+        estimatedCost=estimatedCost
+    )
+
 if __name__ == '__main__':
     app.run(debug=True)

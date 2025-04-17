@@ -55,14 +55,23 @@ document.getElementById('submitFormButton').addEventListener('click', function (
 
             });
             
-            document.getElementById('noButton').addEventListener('click', function() {
-                console.log('User is not satisfied');
-            });
-        }
-        else {
-            document.getElementById('areYouSatisfied').innerText = ''; 
-        }
-        
-    })
-    .catch(error => console.error('Error:', error)); // Handle errors
-});
+            document.getElementById('noButton').addEventListener('click', () => {
+                // pack all returned fields into the query string
+                const params = new URLSearchParams({
+                  origin:       data.origin,
+                  destination:  data.destination,
+                  duration:     data.duration,
+                  month:        data.month,
+                  travelerType: data.travelerType,
+                  dailyBudget:  data.dailyBudget,
+                  flightPrice:  data.flightPrice,
+                  estimatedCost:data.estimatedCost
+                });
+                window.location.href = `/alternatives?${params.toString()}`;
+              });
+            } else {
+              document.getElementById('areYouSatisfied').innerText = '';
+            }
+          })
+          .catch(err => console.error('Error:', err));
+        });

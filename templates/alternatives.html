@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trip Alternatives</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <h1>Your trip summary</h1>
+  <ul>
+    <li><strong>From:</strong> {{ origin }}</li>
+    <li><strong>To:</strong> {{ destination }}</li>
+    <li><strong>Duration:</strong> {{ duration }} days</li>
+    <li><strong>Month:</strong> {{ month }}</li>
+    <li><strong>Travel type:</strong> {{ travelerType }}</li>
+    <li><strong>Daily budget:</strong> ${{ dailyBudget }}</li>
+    <li><strong>Flight price:</strong> ${{ flightPrice }}</li>
+    <li><strong>Estimated total:</strong> ${{ estimatedCost }}</li>
+  </ul>
+
+  <h2>lets improve, what can we do different:</h2>
+  
+  
+</body>
+</html>
