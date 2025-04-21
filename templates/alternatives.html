@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-  <h1>Your trip summary</h1>
+  <h1>the most similar destinations to {{ destination }} </h1>
   <ul>
     <li><strong>From:</strong> {{ origin }}</li>
     <li><strong>To:</strong> {{ destination }}</li>
@@ -18,9 +18,51 @@
     <li><strong>Flight price:</strong> ${{ flightPrice }}</li>
     <li><strong>Estimated total:</strong> ${{ estimatedCost }}</li>
   </ul>
+  
 
   <h2>lets improve, what can we do different:</h2>
+
+  <form id="preferencesForm">
+    <label for="development">1. Do you mind traveling to a less developed country?</label><br>
+    <select id="development" name="development">
+      <option value="notAtAll">Not at all</option>
+      <option value="aBit">A bit</option>
+      <option value="soSo">So So</option>
+      <option value="aLot">A lot</option>
+      <option value="dealBreaker">Deal breaker</option>
+    </select><br><br>
+
+    <label for="farAway">2. Do you mind traveling to a place far away from your original destination?</label><br>
+    <select id="farAway" name="farAway">
+      <option value="notAtAll">Not at all</option>
+      <option value="aBit">A bit</option>
+      <option value="soSo">So So</option>
+      <option value="aLot">A lot</option>
+      <option value="dealBreaker">Deal breaker</option>
+    </select><br><br>
+
+    <label for="weather">3. Do you mind traveling to a place with a different weather from your original destination?</label><br>
+    <select id="weather" name="weather">
+      <option value="notAtAll">Not at all</option>
+      <option value="aBit">A bit</option>
+      <option value="soSo">So So</option>
+      <option value="aLot">A lot</option>
+      <option value="dealBreaker">Deal breaker</option>
+    </select><br><br>
+
+    <label for="culture">4. Do you mind traveling to a place with a different calture(language/religion/style) from your original destination?</label><br>
+    <select id="culture" name="culture">
+      <option value="notAtAll">Not at all</option>
+      <option value="aBit">A bit</option>
+      <option value="soSo">So So</option>
+      <option value="aLot">A lot</option>
+      <option value="dealBreaker">Deal breaker</option>
+    </select><br><br>
+
+    <button type="button" id="preferencesFormButton">Submit</button>
+</form>
+
   
-  
+  <script src="{{ url_for('static', filename='alternate.js') }}"></script>
 </body>
 </html>
